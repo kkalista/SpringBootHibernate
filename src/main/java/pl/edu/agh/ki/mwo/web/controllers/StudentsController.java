@@ -73,16 +73,12 @@ public class StudentsController {
     		@RequestParam(value="studentSurname", required=false) String surname,
     		@RequestParam(value="studentPesel", required=false) String pesel,
     		@RequestParam(value="studentId", required=false) String studentId,
-    		//@RequestParam(value="schoolClassId", required=false) String schoolClassId,
-    		//@RequestParam(value="schoolId", required=false) String schoolId,
     		Model model, HttpSession session) {    	
     	if (session.getAttribute("userLogin") == null)
     		return "redirect:/Login";
     	
     	DatabaseConnector.getInstance().updateStudent(studentId, name, surname, pesel);    	
        	model.addAttribute("students", DatabaseConnector.getInstance().getStudents());
-      //model.addAttribute("schoolClasses", DatabaseConnector.getInstance().getSchoolClasses());
-       	//model.addAttribute("schools", DatabaseConnector.getInstance().getSchools());
     	model.addAttribute("message", "Dane studenta zostały zaktualizowane");
          	
     	return "studentsList";
