@@ -18,7 +18,7 @@ public class Student implements java.io.Serializable {
 	
 	@Column
 	private String pesel;
-	
+		
 	public long getId() {
 		return id;
 	}
@@ -55,4 +55,7 @@ public class Student implements java.io.Serializable {
 		this.pesel = pesel;
 	}
 	
+	public String toString() {
+		return "Student: " + getName() + " "+ getSurname() + " ("+ getPesel() + " ";
+}
 }

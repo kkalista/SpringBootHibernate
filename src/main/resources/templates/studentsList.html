@@ -18,9 +18,13 @@
 				<td><span th:text="${student.surname}" /></td>
 				<td><span th:text="${student.pesel}" /></td>
 		        <td>
+			<form action="ModifyStudent" method="POST">
+		            	<input type="hidden" name="studentId" th:value="${student.id}" />
+		                <button type="submit">Modyfikuj</button>
+		            </form>
 		            <form action="DeleteStudent" method="POST">
 		            	<input type="hidden" name="studentId" th:value="${student.id}" />
-		                <button type="submit">X</button>
+		                <button type="submit">Usuń</button>
 		            </form>
 		        </td>
 			</tr>
